@@ -1,0 +1,53 @@
+From a6e5c17d7cc787e37c246aab951fce352cc1f089 Mon Sep 17 00:00:00 2001
+From: Harshal Patil <harshalspatil21@gmail.com>
+Date: Mon, 24 Jul 2023 11:20:59 +0530
+Subject: [PATCH] final commit
+
+---
+ src/App.tsx   | 4 ++--
+ src/Graph.tsx | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/App.tsx b/src/App.tsx
+index eed0453..3f7bba0 100755
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -2,7 +2,7 @@ import React, { Component } from 'react';
+ import DataStreamer, { ServerRespond } from './DataStreamer';
+ import Graph from './Graph';
+ import './App.css';
+-
++import {setInterval} from "timers";
+ /**
+  * State declaration for <App />
+  */
+@@ -23,7 +23,7 @@ class App extends Component<{}, IState> {
+       // data saves the server responds.
+       // We use this state to parse data down to the child element (Graph) as element property
+       data: [],
+-      showGraph:false,
++      showGraph:false
+     };
+   }
+ 
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index b5b3e3f..4ed702a 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -53,11 +53,11 @@ class Graph extends Component<IProps, {}> {
+       elem.setAttribute('column-pivots','["stock"]');
+       elem.setAttribute('row-pivots','["timestamp"]');
+       elem.setAttribute('columns','["top_ask_price"]');
+-      elem.setAttribute('aggregates',
++      elem.setAttribute('aggregates','
+       {"stock":"distinct count",
+        "top_ask_price":"avg",
+        "top_bid_price":"avg",
+-       "timestamp":"distinct count"});
++       "timestamp":"distinct count"}');
+   }
+   }
+ 
+-- 
+2.40.0.windows.1
+
